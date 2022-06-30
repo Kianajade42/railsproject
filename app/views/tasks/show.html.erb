@@ -1,0 +1,30 @@
+<%# <%= link_to "edit", edit_list_task %> 
+<h4><%= link_to "view all lists", lists_path %></h4>
+<div>
+  <div>
+    <h2>
+      To-Do
+    </h2>
+
+    <ul>
+      <% Task.all.each do |task| %>
+          <li>
+          <h3><%= task.task %></h3>
+            <div>
+             <h4><%= task.details %></h4>
+            </div>
+          </li>
+          <%end%>
+    </ul>
+  </div>
+  </div>
+ 
+
+  <div>
+    <h2>
+      Completed
+    </h2>
+
+    
+  </div>
+</div>

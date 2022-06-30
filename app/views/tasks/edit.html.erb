@@ -1,0 +1,10 @@
+  <% Task.all.each do |task| %>     
+<h1 >
+  Editing <%= task.task %>
+</h1>
+ <%end%>
+ 
+
+<%= link_to 'Log out', destroy_user_session_path, method: :delete, class: ['action-button', 'log-out-button'] %>﻿
+
+<%= render 'form' %>
