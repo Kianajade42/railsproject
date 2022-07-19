@@ -21,8 +21,8 @@ end
 
 # @list = List.find_by(params[:list_id])
 @task = Task.find_by(list_id: params[:id])
-@task = Task.new
-@task.save
+# @task = Task.new
+# @task.save
   end
 
  def create
