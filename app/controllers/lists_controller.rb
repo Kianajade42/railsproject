@@ -11,6 +11,7 @@ class ListsController < ApplicationController
   end
 
   def show
+    
   @list = List.find(params[:id])
   @task = Task.find_by(list_id: params[:id])
   #  @tasks = Task.all
@@ -55,7 +56,7 @@ class ListsController < ApplicationController
  end
 
  def update
-  @list = List.find(params[:id])
+  list = List.find(params[:id])
    @task = Task.find_by(list_id: params[:id])
   @list.update(list_params)
   redirect_to @list

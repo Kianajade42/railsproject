@@ -1,7 +1,7 @@
 class List < ActiveRecord::Base
   has_many :tasks
-  has_many :user_lists
-  has_many :users, through: :user_lists
+  #has_many :user_lists
+  has_many :users, through: :tasks
 
 # scope :list, -> {order(created_at: :desc).limit(3)}
 #scope :latest_something, -> {order(created_at: :desc).limit(3)}

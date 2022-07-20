@@ -24,3 +24,10 @@ Confirm:
 - [x] Limited logic in controllers
 - [x] Views use helper methods if appropriate
 - [x] Views use partials if appropriate
+
+notes
+
+-add task to existing list
+-add error/validations back in
+-completed scope with delete option
+-redirect to task index
