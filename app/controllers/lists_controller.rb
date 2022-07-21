@@ -7,14 +7,14 @@ class ListsController < ApplicationController
     # @user_list = UserList.find_by(@current_user)
     @user_lists = UserList.all
     @lists = List.all
-    @task = Task.find_by(params[:list_id])
+    @tasks = Task.find_by(params[:list_id])
   end
 
   def show
     
   @list = List.find(params[:id])
-  @task = Task.find_by(list_id: params[:id])
-  #  @tasks = Task.all
+  #@tasks = Task.find_by(list_id: params[:id])
+   @tasks = Task.all
   end
 
  def new

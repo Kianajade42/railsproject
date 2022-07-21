@@ -27,7 +27,7 @@ Confirm:
 
 notes
 
--add task to existing list
 -add error/validations back in
 -completed scope with delete option
 -redirect to task index
+-delete buttonkj.
