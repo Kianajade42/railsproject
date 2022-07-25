@@ -4,11 +4,21 @@
 <ul> 
 <h3> <%= @list.name %>   </h3>
 
-<% if !@tasks.nil? %>
+<% if !@list.tasks.nil? %>
 <div class="list-item"> 
-   <% @tasks.each do |t| %> 
+   <% @list.tasks.each do |t| %> 
 <h3> <%= t.task %> </h3> <br>
-<li>
+<%# <li> <%= t.details %> </li> <br>
+ <%# <%= button_to "Delete", list_path(@list), :method => "delete", :class => "destroy" %> 
+   <%end %>  
+</div>
+<% else %>
+<h4 class="list-item"> Nothing to complete. </h4>
+<%= button_to "Delete", list_path(@list), :method => "delete", :class => "destroy" %>
+<% end %>
+</ul>
+ 
+ 
  <%# <ul> 
  <% render @list_id.tasks %>
  <%# <% if !@list_id.tasks.nil? %>

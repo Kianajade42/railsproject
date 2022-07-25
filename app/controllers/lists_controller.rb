@@ -13,8 +13,8 @@ class ListsController < ApplicationController
   def show
     
   @list = List.find(params[:id])
-  #@tasks = Task.find_by(list_id: params[:id])
-   @tasks = Task.all
+  @tasks = Task.find_by(id: params[:list_id])
+   #@tasks = Task.all
   end
 
  def new
@@ -31,22 +31,6 @@ class ListsController < ApplicationController
     else
       render :new
     end
-    # @task = @list.tasks.build(task_params)
-    # @task.save
-    # redirect_to @list
-
-    # @list = List.new(list_params)
-    # @list = @current_user
-    # @task = Task.new(tasks_params(:task, :completed, :due_date, :details, :user_id))
-    # @task = Task.new(list_params)
-    # @task.user_id = current_user
-    # @task.user_id = @current_user
-    # if 
-      # @list.save
-      # redirect_to list_path(@list)
-    # else
-    #   render :new
-    # end
 
   end
 
@@ -56,8 +40,8 @@ class ListsController < ApplicationController
  end
 
  def update
-  list = List.find(params[:id])
-   @task = Task.find_by(list_id: params[:id])
+  @list = List.find(params[:id])
+  @task = Task.find_by(list_id: params[:id])
   @list.update(list_params)
   redirect_to @list
  end

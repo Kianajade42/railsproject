@@ -4,8 +4,8 @@
      <%= list_form.fields_for :tasks, @list.tasks do |task_field| %>
         <h4> Task: <%= task_field.text_field :task, placeholder: "Create a Task" %></h4>
         <h4> Details: <%= task_field.text_field :details, placeholder: "Details" %></h4>  
-        <%# <h4> Completed: <%=task_field.check_box :completed  %></h4>
-        <%# <h4> Task User <%=task_field.check_box :user_id  %></h4> 
+        <h4> Completed: <%=task_field.check_box :completed  %></h4>
+        <%# <h4> Task User <%=task_field.check_box :user_id  %></h4>  
         
         <%#calendar%>
         <%#Checkbox updating status%>

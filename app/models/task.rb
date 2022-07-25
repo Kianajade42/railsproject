@@ -16,8 +16,9 @@
 
 class Task < ActiveRecord::Base
   belongs_to :list
-  belongs_to :user
+  # belongs_to :user
   # belongs_to :user, through: :user_list 
-  validates_presence_of :task, :completed, :due_date, :details, :user_id, :list_id
+  validates_presence_of :task, :details, presence: true
+  # :completed, :due_date, :details, :user_id, :list_id
 
 end
