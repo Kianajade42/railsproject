@@ -1,13 +1,13 @@
 class TasksController < ApplicationController
  before_action :task_params, only: [ :edit, :update]
   def index
-    @list = List.find_by(params[:user_id])
+    @list = List.find_by(params[:list_id])
     @task = Task.find_by(params[:list_id])
      
   end
 
 def show
-  
+  @list = List.find_by(params[:list_id])
   @task = Task.find_by(params[:list_id])
 end
 
@@ -44,7 +44,7 @@ end
   private
   
   def task_params
-    params.require(:task).permit(:task, :completed, :due_date, :details, :user_id, :list_id)
+    params.require(:task).permit(:task, :completed, :due_date, :details)
      #params.permit(:task, :completed, :due_date, :details, :user_id, :list_id)
   end
 end 

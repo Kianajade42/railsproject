@@ -11,10 +11,12 @@ class ListsController < ApplicationController
   end
 
   def show
-    
+  
   @list = List.find(params[:id])
-  @tasks = Task.find_by(id: params[:list_id])
-   #@tasks = Task.all
+#  @tasks = Task.find_by(id: params[:list_id])
+  #  @tasks = Task.find_by(list_id) 
+
+ @tasks = Task.find_by(params[:list_id])
   end
 
  def new
