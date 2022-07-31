@@ -12,7 +12,7 @@ class ListsController < ApplicationController
 
   def show
   
-  @list = List.find(params[:id])
+  @list = List.find_by(params[:id])
 #  @tasks = Task.find_by(id: params[:list_id])
   #  @tasks = Task.find_by(list_id) 
 

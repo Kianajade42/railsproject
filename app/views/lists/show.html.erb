@@ -9,8 +9,8 @@
    <%# <% @tasks.each do |t| %>  
 <h3> <%= link_to @tasks.task, list_tasks_url(:list_id => @list.id,
 :id => @task) %> </h3> <br>
-<%# <li> <%= t.details %> </li> <br>
- <%# <%= button_to "Delete", list_path(@list), :method => "delete", :class => "destroy" %> 
+ <%# <li> <%= @tasks.details %> </li> <br>
+  
    <%# <%end %>   
 </div>
 <% else %>
@@ -18,7 +18,7 @@
 <%= button_to "Delete", list_path(@list), :method => "delete", :class => "destroy" %>
 <% end %>
 </ul>
- 
+ <%= button_to "Delete", list_path(@list), :method => "delete", :class => "destroy" %> 
  
  <%# <ul> 
  <% render @list_id.tasks %>
