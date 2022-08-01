@@ -5,12 +5,14 @@
 <h2><%= @task.task %></h2>
  
     <ul class="tasks-item"> 
-      <%# <h4> Completed: <%=check_box :completed  %></h4> 
    
-    <h4> <%= @task.details %></h4>
-    <h5> <input type="checkbox">  Completed </h5>
-    <%# <%= button_to "Delete", list_task_path(@task.list, @task), :method => "delete", :class => "destroy" %> 
-    
+   
+     <h4> <%= @task.details%></h4>  
+  
+    <%= button_to "Delete", list_task_path(@task.list, @task), :method => "delete", :class => "destroy" %> 
+
+ 
+   
     </ul> 
 
     </div>
