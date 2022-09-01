@@ -4,15 +4,28 @@
 <%= link_to 'Log out', destroy_user_session_path, method: :delete, class: ['action-button', 'log-out-button'] %>
 
 <div class="tasks-container">
-<h3><%= link_to "Create New List", new_list_url %></h3>
-<div>
+
+
+
+<div class=quick>
+<div class=quick>
+ <% @tasks.each do |l| %>
+       <h4> <%= l.task %> </h4>
+        <h5> <%= l.details %> </h5>
+      <% end %> 
+</div>
+<div class="innerquick">
+<h1> Quick view </h1>
+      </div>
 </div>
 
 
 
 
 <div class="tasks-list">
-  <h3 class='title'> Your current Lists:</h3>
+
+  <h3 class='title'> Currently To Do:</h3>
+  <h3><%= link_to "Add New", new_list_url %></h3>
       <% @lists.each do |list| %>
       <h4 class="list-item"> <%= link_to list.name, list %> </h4>
       <% end %>

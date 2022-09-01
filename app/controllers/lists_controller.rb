@@ -6,6 +6,7 @@ class ListsController < ApplicationController
     @user = User.find_by(@current_user)
     # @user_list = UserList.find_by(@current_user)
     @lists = List.all
+    @tasks = Task.all
     # @tasks = Task.find_by(params[:list_id])
   end
 
