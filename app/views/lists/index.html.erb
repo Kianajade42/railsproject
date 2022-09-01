@@ -1,11 +1,16 @@
 
-  <h2><ul> Welcome <%= @user.email %> </ul></h2>
+  <h2>Welcome <%= @user.email %></h2>
 
 <%= link_to 'Log out', destroy_user_session_path, method: :delete, class: ['action-button', 'log-out-button'] %>
 
 <div class="tasks-container">
-
 <h3><%= link_to "Create New List", new_list_url %></h3>
+<div>
+</div>
+
+
+
+
 <div class="tasks-list">
   <h3 class='title'> Your current Lists:</h3>
       <% @lists.each do |list| %>
@@ -14,14 +19,14 @@
     </div>
   </div>
 
-   <div class="tasks-container">
+   <%# <div class="tasks-container">
 <div class="tasks-list">
   <h3 class='title'> other current Lists:</h3>
       <% @user_lists.each do |ul| %>
-      <h4 class="list-item"> <%= user_list.name %> </h4>
-      <% end %>
-    </div>
+      <%# <h4 class="list-item"> <%= user_list.name %> </h4>
+      <%# <% end %>
+    </div> 
    
   </div>
 
-  
+

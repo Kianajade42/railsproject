@@ -1,14 +1,16 @@
 class TasksController < ApplicationController
- before_action :task_params, only: [ :edit, :update]
+  skip_before_action :verify_authenticity_token
+ before_action :task_params, only: [ :edit, :update, :index]
   def index
-    @list = List.find_by(params[:list_id])
-    @task = Task.find_by(params[:list_id])
-     
+     @list = List.find_by(params[:id])
+     @tasks = Task.find_by(params[:list_id])
+    
+     #@task = Task.find_by(list_id: params[:id])
   end
 
 def show
-  @list = List.find_by(params[:list_id])
-  @task = Task.find_by(params[:list_id])
+  @list = List.find(params[:id])
+  @tasks = Task.find_by(params[:list_id])
 end
 
  def new
@@ -36,15 +38,20 @@ end
 
 
   def destroy
-    @task = Task.find(params[:id])
+    @task = Task.find_by(params[:destroy_multiple])
     @task.destroy
-    redirect_to list_path
+    # redirect_to lists_path
+  end
+
+ def destroy_multiple
+    Task.destroy(params[:id])
   end
 
   private
   
+
   def task_params
-    params.require(:task).permit(:task, :completed, :due_date, :details)
-     #params.permit(:task, :completed, :due_date, :details, :user_id, :list_id)
+    # params.require(:task).permit(:task, :completed, :due_date, :details)
+     params.permit(:task, :completed, :due_date, :details, :user_id, :list_id)
   end
 end 

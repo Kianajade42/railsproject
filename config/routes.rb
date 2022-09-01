@@ -3,6 +3,7 @@ Rails.application.routes.draw do
       #  root 'tasks#index'
       #  resources :tasks
         root 'lists#index'
+   
 get '/user/lists', to: 'users/lists#index', as: :user_tasks
   resources :lists do
     resources :tasks
@@ -17,4 +18,13 @@ Rails.application.routes.draw do
   # ...
   get 'login', to: 'logins#new'
   get 'login/create', to: 'logins#create', as: :create_login
+ delete 'tasks/:id', to: 'tasks#destroy'
+
+resources :lists do
+    collection do
+      delete 'destroy_multiple'
+    end
+  end
+
+
 end

@@ -1,8 +1,9 @@
 class UserList < ActiveRecord::Base
   belongs_to :user
-  # has_many :lists
+  
    belongs_to :list
-   has_many :tasks
+
+  #  has_many :tasks
     # scope :completed, -> {
   #   where(:completed => true)
   # }

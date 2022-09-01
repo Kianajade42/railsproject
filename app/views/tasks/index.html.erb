@@ -1,18 +1,16 @@
 <!-- when a user clicks to view tasks, it links to 'tasks/index' to view all tasks with their associated lists -->
 <h4><%= link_to "view all lists", lists_path %></h4>
 <h4> <%= link_to "add new task",  new_list_task_url(@list, @task) %> </h4>  
+
 <div>
-<h2><%= @task.task %></h2>
+
+<h2><%= @tasks.task %></h2>
  
     <ul class="tasks-item"> 
-   
-   
-     <h4> <%= @task.details%></h4>  
-  
-    <%= button_to "Delete", list_task_path(@task.list, @task), :method => "delete", :class => "destroy" %> 
-
- 
-   
+     <h4> <%= @tasks.details%></h4>    
+<%# <%= button_to "Task Complete?", list_task_path(task.list, task), :method => "delete", :class => "destroy" %> 
+      <%# <input class="toggle-all" type="checkbox">
+        <label for="toggle-all">Mark as complete:</label>  %>
     </ul> 
 
     </div>

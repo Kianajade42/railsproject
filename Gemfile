@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 gem 'coffee-rails', '~> 4.2'
 
 ruby '2.6.1'
+gem 'select_all-rails'
 gem 'google_sign_in'
 gem 'devise'
 gem 'bootstrap-sass', '~> 3.4', '>= 3.4.1'

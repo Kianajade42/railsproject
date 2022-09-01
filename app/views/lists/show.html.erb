@@ -1,44 +1,46 @@
 <h4><%= link_to "view all lists", lists_path %></h4>
 <h4><%= link_to "edit", edit_list_path %></h4>
  <h4> <%= link_to "add new task",  new_list_task_url(@list, @task) %> </h4>  
-<ul> 
-<h3> <%= @list.name %>   </h3>
 
-<% if !@tasks.nil? %>
+<ul> 
+
+<h3> <%= @list.name %>   </h3>
 <div class="list-item"> 
-   <%# <% @tasks.each do |t| %>  
-<h3> <%= link_to @tasks.task, list_tasks_url(:list_id => @list.id,
-:id => @task) %> </h3> <br>
- <%# <li> <%= @tasks.details %> </li> <br>
-  
-   <%# <%end %>   
-</div>
+    
+    <% if !@list.tasks.nil? %>
+      <% @list.tasks.each do |l| %>
+       <%# <h4> <%= link_to l.task, list_task_url%> </h4> 
+          <h4> <%= l.task %></h4>  
+      <%= form_tag destroy_multiple_lists_path, method: :delete do %>
+     <td><%= check_box_tag "tasks_ids[]", @tasks, false, class: 'selectable' %></td>
+              <% end %>
+        <%# <h5><%= check_box_tag(:complete) %> <%# complete</h5> %> 
+       <%end%>
+      <%# <h3> <%= submit_tag "Delete selected", :class => 'btn btn-primary btn-xs' %> </h3>
+       <%# <%= button_to 'Delete', list_tasks_path(@list.tasks), :method => 'destroy_multiple' %> 
+
+    <% else %>
+
+    <h4>Nothing to complete</h4>
+    <% end %>
+    </div>
+</ul>
+
+<%= button_to "Delete list", @task, :method => :delete %>
+
+<%# <h3> <%= link_to @tasks.task, list_tasks_url(:list_id => @list.id, :id => @task) %> </h3> <br> 
+ <%# <li> <%= @tasks.details %> </li> <br>   
+
+<%# 
 <% else %>
-<h4 class="list-item"> Nothing to complete. </h4>
+<%# <h4 class="list-item"> Nothing to complete. </h4>
 <%= button_to "Delete", list_path(@list), :method => "delete", :class => "destroy" %>
-<% end %>
+<%# <% end %> 
+
+</div>
 </ul>
  
- 
- <%# <ul> 
- <% render @list_id.tasks %>
- <%# <% if !@list_id.tasks.nil? %>
- <%# <h4 class="list-item"> <%= @list_id %>
- 
- <%# </ul> %> 
- <%# <%=link_to 'list_tasks'%> 
 
 
-<%# <%= link_to @tasks.task, list_tasks_url(@tasks)%> 
-  <%# <% @tasks.each do |task| %>
-       <%# <h3 class= "tasks-item"><%= link_to task.task, list_tasks_url(task)%>
-  <%# <%= button_to "Delete", list_task_path, :method => "delete", :class => "destroy" %> 
-         <%# </h3>
-        <%end %> 
-        <%# (task.list, task) %>
-  <%# <%= form_for([@list, Task.new]) do |f| %>
-      <%# <%= f.text_field :task, placeholder: "Create a task" %>
-      <%# <%= f.submit %>
-    <%# <% end %> 
 
 
