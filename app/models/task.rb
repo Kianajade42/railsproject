@@ -8,5 +8,5 @@ class Task < ActiveRecord::Base
   # :completed, :due_date, :details, :user_id, :list_id
  
   #  scope :task, -> {order(created_at: :desc).limit(3)}
-
+scope :most_recent, -> {order(created_at: :desc).limit(2)}
 end

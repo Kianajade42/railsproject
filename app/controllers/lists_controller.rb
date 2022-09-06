@@ -6,7 +6,8 @@ class ListsController < ApplicationController
     @user = User.find_by(@current_user)
     # @user_list = UserList.find_by(@current_user)
     @lists = List.all
-    @tasks = Task.all
+    # List.find(1).tasks.most
+     @tasks = Task.all.most_recent
     # @tasks = Task.find_by(params[:list_id])
   end
 

@@ -7,15 +7,18 @@
 
 
 
-<div class=quick>
+<div class=out>
+<ul>
 <div class=quick>
  <% @tasks.each do |l| %>
-       <h4> <%= l.task %> </h4>
+      <li> <h4> <%= l.task %> </h4></li>
         <h5> <%= l.details %> </h5>
       <% end %> 
-</div>
+       </div>
+      </ul>
+
 <div class="innerquick">
-<h1> Quick view </h1>
+<h1> Recently added </h1>
       </div>
 </div>
 
