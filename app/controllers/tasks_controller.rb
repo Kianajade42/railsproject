@@ -38,14 +38,14 @@ end
 
 
   def destroy
-    @task = Task.find_by(params[:destroy_multiple])
+    @task = Task.find_by(params[:id])
     @task.destroy
     # redirect_to lists_path
   end
 
- def destroy_multiple
-    Task.destroy(params[:id])
-  end
+#  def destroy_multiple
+#     Task.destroy(params[:id])
+#   end
 
   private
   
