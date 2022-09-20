@@ -1,10 +1,12 @@
-
+<%= render 'errors' %>
 <div class="tasks-container">
-<h2> <% @list.name %></h2>
-
 <div class= " tasks-item" id=form >
 
-<%= form_for([@list, @task]) do |f| %>
+<%= form_for :task do |f| %>
+<%= f.hidden_field :list_id, value: @list.id %>
+<%= f.hidden_field :user_id %>
+<%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+
 <%= f.label :task %>
 <%= f.text_field :task %><br>
 <%= f.label :details %>
@@ -12,6 +14,6 @@
 <%= f.submit %>
 <% end %>
 </div>
- <%# <%= params.inspect %> 
+  <%# <%= params.inspect %>
 
 </div>

@@ -1,10 +1,30 @@
-  <% Task.all.each do |task| %>     
-<h1 >
-  Editing <%= task.task %>
-</h1>
- <%end%>
+
+ <h4> <%= link_to 'View all lists', lists_path %> </h4>
+
+<%# <%= render 'form' %> 
+
+
+
+   <%# %= list_form.hidden_field :list_id %>
+
+
+
+<div class="tasks-container">
+<div class= " tasks-item" id=form >
+
+
+<%= form_for([@list, @task]) do |t| %>
+
+  <%= t.label 'task' %><br>
+  <%= t.text_field :task %><br>
+
+  <%= t.label 'details' %><br>
+  <%= t.text_area :details%><br>
+
+  <%= t.submit "update" %>
+<% end %>
+  <%# <%= params.inspect %>
+
+</div>
+
  
-
-<%= link_to 'Log out', destroy_user_session_path, method: :delete, class: ['action-button', 'log-out-button'] %>﻿
-
-<%= render 'form' %>

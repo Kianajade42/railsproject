@@ -1,46 +1,40 @@
 
-  <h2>Welcome <%= @user.email %></h2>
+ <div class="title"> <h2>Welcome <%= @user.email %></h2> </div>
 
 <%= link_to 'Log out', destroy_user_session_path, method: :delete, class: ['action-button', 'log-out-button'] %>
 
 <div class="tasks-container">
 
-
-
 <div class=out>
+<h2> Recently added </h2>
 <ul>
 <div class=quick>
- <% @tasks.each do |l| %>
-      <li> <h4> <%= l.task %> </h4></li>
-        <h5> <%= l.details %> </h5>
+
+ <% @list.each do |l| %>
+ <div class= "list-item">
+    <h4> <%= l.task %> </h4>
+         </div>
       <% end %> 
+      
        </div>
       </ul>
 
 <div class="innerquick">
-<h1> Recently added </h1>
+<h3> Quick view </h3>
       </div>
 </div>
-
-
-
+ 
 
 <div class="tasks-list">
 
   <h3 class='title'> Currently To Do:</h3>
-  <h3><%= link_to "Add New", new_list_url %></h3>
+  <h3><%= link_to "Add New", new_list_path(@list)  %></h3>
+  <h3><%= link_to "View all", tasks_path %></h3>
       <% @lists.each do |list| %>
       <h4 class="list-item"> <%= link_to list.name, list %> </h4>
       <% end %>
     </div>
   </div>
-
-   <%# <div class="tasks-container">
-<div class="tasks-list">
-  <h3 class='title'> other current Lists:</h3>
-      <% @user_lists.each do |ul| %>
-      <%# <h4 class="list-item"> <%= user_list.name %> </h4>
-      <%# <% end %>
     </div> 
    
   </div>

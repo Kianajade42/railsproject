@@ -1,57 +1,65 @@
 class TasksController < ApplicationController
   skip_before_action :verify_authenticity_token
- before_action :task_params, only: [ :edit, :update, :index]
+#  before_action :task_params, only: [ :edit, :update, :index, :show]
+
+
   def index
-     @list = List.find_by(params[:id])
-     @tasks = Task.find_by(params[:list_id])
-    
-     #@task = Task.find_by(list_id: params[:id])
+    @tasks = Task.all
   end
 
 def show
-  @list = List.find(params[:id])
-  @tasks = Task.find_by(params[:list_id])
+  @list = List.find_by(id: params[:list_id])
+   @task = @list.tasks.find_by(id: params[:id])
+  
+
+
 end
 
  def new
-
+  @list = List.find_by(id: params[:list_id])
+   @task = Task.new
     @list = List.find_by(id: params[:list_id])
-    @task = Task.new
-    @task.save
-
-  end
+ end
+ 
 
  def create
-     @list = List.find(params[:list_id])
-    #@task = Task.new(task_params)
-    # @task = Task.new
-    @task = @list.tasks.build(task_params)
-    #@task.save
-    redirect_to @list
+   @task = Task.create(task_params)
+  if   @task.save
+   redirect_to tasks_path
+    flash[:notice] = "New task saved."
+  else
+    flash[:notice] = "Not saved"
+    render :new
   end
+end
   
   def edit
+    # @list = List.find_by(id: params[:id])
+    # @task = Task.find_by(id: params[:id])
+    
+
     @task = Task.find(params[:id])
-    @task.update(task_params)
-    redirect_to list_path(@task.list)
+
   end
 
+def update 
+    @task = Task.find(params[:id])
+    @task.update(task_params)
+    redirect_to list_path(@list)
+end
 
   def destroy
     @task = Task.find_by(params[:id])
     @task.destroy
-    # redirect_to lists_path
+    #  redirect_to lists_path
   end
 
-#  def destroy_multiple
-#     Task.destroy(params[:id])
-#   end
 
   private
   
 
   def task_params
-    # params.require(:task).permit(:task, :completed, :due_date, :details)
-     params.permit(:task, :completed, :due_date, :details, :user_id, :list_id)
+     params.require(:task).permit(:task, :completed, :due_date, :details, :user_id, :list_id)
   end
-end 
+end
+ 

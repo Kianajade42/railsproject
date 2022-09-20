@@ -1,41 +1,29 @@
 <h4><%= link_to "view all lists", lists_path %></h4>
-<h4><%= link_to "edit", edit_list_path %></h4>
- <h4> <%= link_to "add new task",  new_list_task_url(@list, @task) %> </h4>  
+<%# <h4><%= link_to "edit", edit_task_path(@list, @task) %></h4> %>
+<h4> <%= link_to "add new task",  new_list_task_url(@list) %> </h4>  
 
 <ul> 
 
 <h3> <%= @list.name %>   </h3>
 <div class="list-item"> 
     
-    <% if !@list.tasks.nil? %>
+     <% if !@list.tasks.nil? %>
       <% @list.tasks.each do |l| %>
-       <%# <h4> <%= link_to l.task, list_task_url%> </h4> 
-          <h4> <%= l.task %></h4>  
-      <%= form_tag destroy_multiple_lists_path, method: :delete do %>
-     <td><%= check_box_tag "tasks_ids[]", @tasks, false, class: 'selectable' %></td>
-              <% end %>
-        <%# <h5><%= check_box_tag(:complete) %> <%# complete</h5> %> 
-       <%end%>
-      <%# <h3> <%= submit_tag "Delete selected", :class => 'btn btn-primary btn-xs' %> </h3>
-       <%# <%= button_to 'Delete', list_tasks_path(@list.tasks), :method => 'destroy_multiple' %> 
+      <div>
+           <h4> 
+           <input class="toggle-all" type="checkbox"> <%= link_to l.task, list_task_path(@list, l)%> 
+            </h4>  
+          <%# <h5> <%= l.details%>  </h5> 
+  </div>
+        <%end%> 
 
-    <% else %>
-
+     <% else %> 
     <h4>Nothing to complete</h4>
-    <% end %>
+    <% end %> 
     </div>
 </ul>
 
 <%= button_to "Delete list", @tasks, :method => :delete %>
-
-<%# <h3> <%= link_to @tasks.task, list_tasks_url(:list_id => @list.id, :id => @task) %> </h3> <br> 
- <%# <li> <%= @tasks.details %> </li> <br>   
-
-<%# 
-<% else %>
-<%# <h4 class="list-item"> Nothing to complete. </h4>
-<%= button_to "Delete", list_path(@list), :method => "delete", :class => "destroy" %>
-<%# <% end %> 
 
 </div>
 </ul>
