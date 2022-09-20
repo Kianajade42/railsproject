@@ -14,7 +14,8 @@
 
 
 <%= form_for([@list, @task]) do |t| %>
-
+<%= t.hidden_field :id, value: @task.id %>
+<%= t.hidden_field :user_id %>
   <%= t.label 'task' %><br>
   <%= t.text_field :task %><br>
 

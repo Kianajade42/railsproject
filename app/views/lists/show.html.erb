@@ -1,5 +1,4 @@
 <h4><%= link_to "view all lists", lists_path %></h4>
-<%# <h4><%= link_to "edit", edit_task_path(@list, @task) %></h4> %>
 <h4> <%= link_to "add new task",  new_list_task_url(@list) %> </h4>  
 
 <ul> 
@@ -7,23 +6,21 @@
 <h3> <%= @list.name %>   </h3>
 <div class="list-item"> 
     
-     <% if !@list.tasks.nil? %>
+    
       <% @list.tasks.each do |l| %>
-      <div>
+      <% if l.task.nil? %>
+      <h4>Nothing to complete</h4>
+      <% else %>
            <h4> 
            <input class="toggle-all" type="checkbox"> <%= link_to l.task, list_task_path(@list, l)%> 
-            </h4>  
-          <%# <h5> <%= l.details%>  </h5> 
-  </div>
-        <%end%> 
-
-     <% else %> 
-    <h4>Nothing to complete</h4>
+            </h4> 
     <% end %> 
+        <%end%>
+
     </div>
 </ul>
 
-<%= button_to "Delete list", @tasks, :method => :delete %>
+<%= button_to "Delete list", list_path(@list), :method => :delete %>
 
 </div>
 </ul>

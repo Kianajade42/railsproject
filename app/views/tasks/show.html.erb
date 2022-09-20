@@ -1,10 +1,14 @@
 
 <h4><%= link_to "view all lists", lists_path %></h4>
+<h4><%= link_to "edit", edit_task_path %></h4> 
+ <h3  class="tasks-header"> <%= @task.task %></h3>
  <div class="tasks-item"> 
- <div class =task-name>
- <h1> <%= @task.task %></h1>
+ <div>
 <h4>Details:</h4>
 <p><%= @task.details %></p> 
+
 </div>
+
 </div>
+<%= button_to "Delete", tasks_path(@task), :method => :delete %>
 

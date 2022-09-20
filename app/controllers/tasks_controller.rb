@@ -45,13 +45,13 @@ end
 def update 
     @task = Task.find(params[:id])
     @task.update(task_params)
-    redirect_to list_path(@list)
+    redirect_to list_tasks_path(@task)
 end
 
   def destroy
-    @task = Task.find_by(params[:id])
-    @task.destroy
-    #  redirect_to lists_path
+
+    @task =  Task.find_by(id: params[:id]).destroy
+   redirect_to list_tasks_path(@task)
   end
 
 

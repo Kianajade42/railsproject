@@ -44,8 +44,7 @@ def edit
     end
 
   def destroy
-  @list = List.find_by(id: params[:id])
-    @list.destroy
+  List.find(params[:id]).destroy
     redirect_to lists_path
   end
 

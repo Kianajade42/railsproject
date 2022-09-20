@@ -9,6 +9,8 @@ get '/tasks', to: 'tasks#index'
 post '/lists/:id/tasks/new', to: 'tasks#create'
 get 'tasks/:id/edit', to: 'tasks#edit', as: :edit_task
 patch 'tasks/:id', to: 'tasks#update'
+delete 'tasks.:id', to: 'tasks#destroy'
+delete 'lists/:id', to: 'lists#destroy'
 
 get '/user/lists', to: 'users/lists#index', as: :user_tasks
   resources :lists, only: [:index, :show, :new, :create, :edit] do
@@ -26,6 +28,4 @@ Rails.application.routes.draw do
   # ...
   get 'login', to: 'logins#new'
   get 'login/create', to: 'logins#create', as: :create_login
- delete 'tasks/:id', to: 'tasks#destroy'
- delete 'lists/:id', to: 'lists#destroy'
 end
