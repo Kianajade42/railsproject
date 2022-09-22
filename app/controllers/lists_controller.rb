@@ -11,10 +11,11 @@ class ListsController < ApplicationController
   def show
    @list = List.find_by(id: params[:id])
    @task = Task.find_by(id: params[:list_id])
-
+   @user= User.find_by(params[:id])
   end
 
  def new
+   @user = User.find_by(@current_user)
     @list = List.new
     @list.tasks.build
     # @list.save
@@ -23,11 +24,13 @@ class ListsController < ApplicationController
 
   def create
     @list = List.new(list_params)
-    @list.task = @current_user
-    if @list.save
+    if @list.user_ids == @user.id
+      @list.save
       redirect_to @list
     else
+      flash[:notice] = "User ID must be your own"
       render :new
+  
     end
 
   end

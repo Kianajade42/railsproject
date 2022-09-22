@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
     def index
     @user = User.find_by(@current_user)
-    @user_lists = UserList.all
+    # @user_lists = User.by_name
     end
     
     def new

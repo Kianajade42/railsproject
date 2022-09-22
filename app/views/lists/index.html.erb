@@ -1,6 +1,9 @@
 
  <div class="title"> <h2>Welcome <%= @user.email %></h2> </div>
 
+<h4><%= link_to "View tasks by user", user_path %> 
+<h4><%= link_to "View all tasks", tasks_path %></h4> 
+
 <%= link_to 'Log out', destroy_user_session_path, method: :delete, class: ['action-button', 'log-out-button'] %>
 
 <div class="tasks-container">
@@ -28,8 +31,8 @@
 <div class="tasks-list">
 
   <h3 class='title'> Currently To Do:</h3>
-  <h3><%= link_to "Add New", new_list_path(@list)  %></h3>
-  <h3><%= link_to "View all", tasks_path %></h3>
+  <h3><%= link_to "Add New", new_list_path  %></h3>
+  
       <% @lists.each do |list| %>
       <h4 class="list-item"> <%= link_to list.name, list %> </h4>
       <% end %>

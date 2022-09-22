@@ -18,6 +18,9 @@
         <%end%>
 
     </div>
+     <h5> this list belongs to: 
+     <%= @user.email%> </h5>
+     
 </ul>
 
 <%= button_to "Delete list", list_path(@list), :method => :delete %>

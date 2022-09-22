@@ -5,14 +5,13 @@ class TasksController < ApplicationController
 
   def index
     @tasks = Task.all
+    @user= User.find_by(params[:id])
   end
 
 def show
   @list = List.find_by(id: params[:list_id])
-   @task = @list.tasks.find_by(id: params[:id])
-  
-
-
+ @task = @list.tasks.find_by(id: params[:id])
+ @user= User.find_by(params[:id])
 end
 
  def new
@@ -34,12 +33,7 @@ end
 end
   
   def edit
-    # @list = List.find_by(id: params[:id])
-    # @task = Task.find_by(id: params[:id])
-    
-
     @task = Task.find(params[:id])
-
   end
 
 def update 

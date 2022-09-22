@@ -4,13 +4,14 @@
 
 <%= form_for :task do |f| %>
 <%= f.hidden_field :list_id, value: @list.id %>
-<%= f.hidden_field :user_id %>
 <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
 
 <%= f.label :task %>
 <%= f.text_field :task %><br>
 <%= f.label :details %>
 <%= f.text_field :details %><br>
+<%= f.label :user_id %>
+<%= f.text_field :user_id %><br>
 <%= f.submit %>
 <% end %>
 </div>

@@ -7,13 +7,16 @@
     <ul class="tasks-list">
       <% @tasks.each do |t| %>
           <li class="list-item">
-          <h3><%= t.task %></h3>
+          <h3><%=t.task %></h3>
             <div>
              <h4><%= t.details %></h4>
+             
             </div>
+            <h5>belongs to <%=@user.email%> </h5>
           </li>
           <%end%>
     </ul>
+     
   </div>
   </div>
  
