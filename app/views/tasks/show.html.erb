@@ -10,7 +10,7 @@
 </div>
 
 </div>
- <h5>belongs to: 
-     <%=@user.email %> </h5>
+ <h5>this task belongs to: 
+     <%=@task.user.email %> </h5>
 <%= button_to "Delete", tasks_path(@task), :method => :delete %>
 

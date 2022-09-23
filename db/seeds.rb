@@ -11,16 +11,16 @@
 #   {task: "Eye appt", details: "Mon at 11am", list_id: "2"},
 #  ])
  
-# Task.create(task: "Roadtrip", details: "Rent car", user_id: "1", list_id: "1")
-# Task.create(task: "Wedding", details: "In mexico", user_id: "1",  list_id: "1")
-# Task.create(task: "Eye appt", details: "Mon at 11am", user_id: "2",  list_id: "2")
+Task.create(task: "Roadtrip", details: "Rent car", user_id: "1", list_id: "1")
+Task.create(task: "Wedding", details: "In mexico", user_id: "1",  list_id: "1")
+Task.create(task: "Eye appt", details: "Mon at 11am", user_id: "2",  list_id: "2")
 # puts "success"
 
-# List.create(name: "Trips")
-# List.create(name: "Appointments")
+ List.create(name: "Trips")
+ List.create(name: "Appointments")
 
 # UserList.create(user_id: "1", list_id: "1")
 # UserList.create(user_id: "2", list_id: "2")
 
-# User.create(email: "kianajade42@gmail.com", password: "password")
- #User.create(email: "kjl@gmail.com", password: "pass")
+ User.create(email: "kianajade42@gmail.com", password: "password")
+ User.create(email: "kjl@gmail.com", password: "pass")

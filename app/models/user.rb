@@ -1,8 +1,8 @@
 class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-       validates :username, presence: true
-    validates :username, :email, uniqueness: true    
+       validates :email, presence: true
+    validates :email, :email, uniqueness: true    
 
 
   has_many :tasks

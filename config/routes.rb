@@ -2,10 +2,10 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
       root 'lists#index'
- get '/user_lists', to: 'user_lists#index', as: :user
+ get '/user', to: 'users#index', as: :user
 
-get '/user_lists/:id/tasks', to: 'user_lists#show'
-post '/user_lists/:id/tasks', to: 'user_lists#show', as: :show
+get '/user/:id/tasks', to: 'users#show'
+post '/user/:id/tasks', to: 'users#show', as: :show
 get '/tasks/:id', to: 'tasks#show', as: :show_task
 get '/tasks', to: 'tasks#index'
 post '/lists/:id/tasks/new', to: 'tasks#create'

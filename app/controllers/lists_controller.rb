@@ -24,15 +24,14 @@ class ListsController < ApplicationController
 
   def create
     @list = List.new(list_params)
-    if @list.user_ids == @user.id
-      @list.save
+    if @list.id == @current_user
+     
+     @list.save
       redirect_to @list
     else
       flash[:notice] = "User ID must be your own"
       render :new
-  
     end
-
   end
 
 def edit
